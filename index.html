@@ -15,12 +15,25 @@
     <div class="main">
         <div class="settings">
             <div class="draw-properties">
+                <h2>Draw Settings</h2>
+                <div class="color">
+                    <label for="color-picker">Select a color:</label>
+                    <input type="color" value="#000000" id="color-picker">
+                </div>
                 <div class="rainbow"></div>
                 <div class="darkening"></div>
                 <div class="eraser"></div>
             </div>
-            <div class="size-slider"></div>
-            <div class="dark-mode"></div>
+            <div class="size-slider">
+                <h2>Grid Size</h2>
+                <div class="slider-container">
+                    <p class="slider-output"></p>
+                    <input type="range" min="16" max="100" value="16" class="slider">
+                </div>
+            </div>
+            <div class="reset">
+                <button id="reset-btn">RESET GRID</button>
+            </div>
         </div>
 
         <div class="grid">

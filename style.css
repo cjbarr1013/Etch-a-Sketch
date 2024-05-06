@@ -19,6 +19,11 @@ h1 {
     margin: 20px 0;
 }
 
+h2 {
+    margin: 0;
+    padding: 5px;
+}
+
 img {
     width: 20px;
     height: 20px;
@@ -44,28 +49,90 @@ img:hover {
 .settings {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     gap: 10px;
     width: 200px;
 }
 
-.draw-properties, .size-slider, .dark-mode {
+.draw-properties, .size-slider {
     background-color: rgb(215, 215, 215);
     border-radius: 10px;
 }
 
 .draw-properties {
-    height: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 70%;
 }
 
 /* Add .rainbow, .darkening, .eraser properties here */
 
 .size-slider {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     height: 20%;
 }
 
-.dark-mode {
-    height: 20%;
+.slider-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-basis: 100%;
+    width: 100%;
+}
+
+.slider-container > p {
+    margin: 0;
+}
+
+.slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 90%;
+    height: 15px;
+    border-radius: 5px;  
+    outline: none;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%; 
+    background: #03682a;
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #03682a;
+    cursor: pointer;
+}
+
+.reset {
+    display: flex;
+    height: 10%;
+}
+
+#reset-btn {
+    width: 100%;
+    font-weight: bold;
+    font-size: 20px;
+    color: white;
+    border: 5px solid rgb(151, 0, 0);
+    border-radius: 10px;
+    background-color: rgb(255, 0, 0);
+    opacity: 0.8;
+}
+
+#reset-btn:hover {
+    opacity: 1.0;
 }
 
 .grid {
@@ -73,7 +140,7 @@ img:hover {
     flex-wrap: wrap;
     width: 600px;
     background-color: rgb(255, 255, 255);
-    box-shadow: 0px 0px 5px 5px rgb(60, 60, 60);
+    box-shadow: 0px 0px 3px 5px rgb(60, 60, 60);
 }
 
 .grid-square {
@@ -81,6 +148,6 @@ img:hover {
     border: 0.5px solid rgb(215, 215, 215);
 }
 
-.grid-square-hovered {
+.grid-square-fill {
     background-color: black;
 }
