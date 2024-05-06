@@ -19,13 +19,18 @@ function createGrid(sliderValue) {
     const squareWidth = (gridDimensions.width / sliderValue) + "px";
     const squareHeight = (gridDimensions.height / sliderValue) + "px";
 
-    for (let i = 1; i <= (sliderValue**2); i++) {
-        const square = document.createElement("div");
-        square.classList.add("grid-square");
-        square.style.width = squareWidth;
-        square.style.height = squareHeight;
-        square.addEventListener("mouseover", changeSquareColor);
-        grid.appendChild(square);
+    for (let i = 1; i <= (sliderValue); i++) {
+        const row = document.createElement("div");
+        row.classList.add("grid-row");
+        grid.appendChild(row);
+        for (let j = 1; j <= (sliderValue); j++) {
+            const square = document.createElement("div");
+            square.classList.add("grid-square");
+            square.style.width = squareWidth;
+            square.style.height = squareHeight;
+            square.addEventListener("mouseover", changeSquareColor);
+            row.appendChild(square);
+        }
     }
 }
 
