@@ -16,13 +16,30 @@
         <div class="settings">
             <div class="draw-properties">
                 <h2>Draw Settings</h2>
-                <div class="color">
-                    <label for="color-picker">Select a color:</label>
-                    <input type="color" value="#000000" id="color-picker">
+                <div class="properties-container">
+                    <div class="color">
+                        <label for="color-picker">Select a color:</label>
+                        <input type="color" value="#000000" id="color-picker">
+                    </div>
+                    <div class="draw-options">
+                        <div>
+                            <input type="radio" checked="checked" id="draw" name="draw-option" value="draw" class="option">
+                            <label for="draw">Draw</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="rainbow" name="draw-option" value="rainbow" class="option">
+                            <label for="rainbow">Rainbow</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="darkening" name="draw-option" value="darkening" class="option">
+                            <label for="darkening">Darkening</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="eraser" name="draw-option" value="eraser" class="option">
+                            <label for="eraser">Eraser</label>
+                        </div>
+                    </div>
                 </div>
-                <div class="rainbow"></div>
-                <div class="darkening"></div>
-                <div class="eraser"></div>
             </div>
             <div class="size-slider">
                 <h2>Grid Size</h2>

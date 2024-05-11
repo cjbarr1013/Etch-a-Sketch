@@ -49,6 +49,7 @@ img:hover {
 .settings {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     gap: 10px;
     width: 200px;
 }
@@ -62,10 +63,38 @@ img:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 70%;
+    height: 40%;
 }
 
-/* Add .rainbow, .darkening, .eraser properties here */
+.properties-container {
+    display: flex;
+    flex-direction: column;
+    flex: auto;
+    justify-content: space-evenly;
+}
+
+.draw-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.option {
+    appearance: none;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #03682a;
+    transition: 0.2s all linear;
+    margin-right: 5px;
+    position: relative;
+    top: 4px;
+}
+
+.option:checked {
+    border: 10px solid #03682a;
+}
 
 .size-slider {
     display: flex;
