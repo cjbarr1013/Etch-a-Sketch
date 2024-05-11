@@ -28,7 +28,10 @@ resetBtn.addEventListener("click", resetGrid)
 
 /* Color Picker */
 const colorPicker = document.querySelector("#color-picker");
-/* colorPicker.addEventListener("input", ) */
+let selectedColor = colorPicker.value;
+colorPicker.addEventListener("input", () => {
+    selectedColor = colorPicker.value;
+})
 
 /* Functions */
 function createGrid(sliderValue) {
@@ -64,7 +67,7 @@ function resetGrid() {
 
 function changeSquareColor() {
     if (gridFlag) {
-        this.classList.add("grid-square-fill");
+        this.style.backgroundColor = selectedColor;
     }
 }
 
@@ -72,8 +75,6 @@ createGrid(slider.value);
 
 /* 
 To-do:
-- Add ability to change color
-- Make it so you have to "click" & "mouseover" to draw
 - Add rainbow button and functionality
 - Add darkening button and functionality
 - Add eraser button and functionality

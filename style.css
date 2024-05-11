@@ -156,7 +156,3 @@ img:hover {
 .grid-square:hover {
     background-color: rgb(215, 215, 215);
 }
-
-.grid-square-fill {
-    background-color: black;
-}
