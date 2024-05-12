@@ -19,19 +19,30 @@ sliderOutput.textContent = slider.value;
 slider.addEventListener("input", () => {
     sliderOutput.textContent = slider.value;
 })
-
 slider.addEventListener("mouseup", resetGrid)
 
 /* Reset Button */
 const resetBtn = document.querySelector("#reset-btn");
 resetBtn.addEventListener("click", resetGrid)
 
+
 /* Color Picker */
 const colorPicker = document.querySelector("#color-picker");
-let selectedColor = colorPicker.value;
+let activeColor = colorPicker.value;
 colorPicker.addEventListener("input", () => {
-    selectedColor = colorPicker.value;
+    if (document.querySelector("#draw").checked) {
+        activeColor = colorPicker.value;
+    }
 })
+
+/* Radios */
+const radios = document.querySelectorAll('input[name="draw-option"]')
+radios.forEach((item) => {
+    item.addEventListener("change", () => {
+        radioChange(item.value)
+    });
+})
+
 
 /* Functions */
 function createGrid(sliderValue) {
@@ -63,20 +74,53 @@ function deleteGrid() {
 function resetGrid() {
     deleteGrid();
     createGrid(slider.value);
+    radios.forEach((item) => {
+        if (item.checked) radioChange(item.value);
+    })
 }
 
 function changeSquareColor() {
     if (gridFlag) {
-        this.style.backgroundColor = selectedColor;
+        this.style.backgroundColor = activeColor;
     }
+}
+
+function radioChange(radio) {
+    switch(radio) {
+        case "draw":
+            activeColor = colorPicker.value;
+            removeRainbowListener();
+            break;
+        case "rainbow":
+            document.querySelectorAll(".grid-square").forEach((square) => {
+                square.addEventListener("mouseover", randomizeColor);
+            })
+            break;
+        case "eraser":
+            activeColor = "";
+            removeRainbowListener();
+            break;
+    }
+}
+
+function randomizeColor() {
+    const letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    activeColor = color;
+}
+
+function removeRainbowListener() {
+    document.querySelectorAll(".grid-square").forEach((square) => {
+        square.removeEventListener("mouseover", randomizeColor);
+    })
 }
 
 createGrid(slider.value);
 
 /* 
 To-do:
-- Add rainbow button and functionality
-- Add darkening button and functionality
-- Add eraser button and functionality
 - Finish up styling
  */
